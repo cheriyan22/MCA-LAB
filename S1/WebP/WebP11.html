@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Exam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .options {
+            margin-bottom: 10px;
+        }
+
+        .result {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="question">
+        <h2>Question 1: Arranu MCA il Main Chugma?</h2>
+        <div class="options">
+            <label><input type="radio" name="question1" value="Bibin"> Bibin</label><br>
+            <label><input type="radio" name="question1" value="Basil"> Basil</label><br>
+            <label><input type="radio" name="question1" value="Mehafil"> Mehafil</label><br>
+            <label><input type="radio" name="question1" value="Alvin"> Alvin</label><br>
+        </div>
+    </div>
+
+    <button onclick="calculateScore()">Submit Exam</button>
+    <div class="result" id="result"></div>
+    <script>
+        function calculateScore() {
+            var selectedAnswer = document.querySelector('input[name="question1"]:checked');
+
+            if (selectedAnswer) {
+                var userAnswer = selectedAnswer.value;
+                var correctAnswer = "Mehafil";
+                var resultElement = document.getElementById("result");
+                if (userAnswer === correctAnswer) {
+                    resultElement.textContent = "Correct Utharram! Nee orru fudhiman thenne!";
+                } else {
+                    resultElement.textContent = "Incorrect Utharram! Nee orru menden thenne!";
+                }
+            }
+	   else {
+                alert("Please select an answer before submitting.");
+            }
+        }
+    </script>
+</body>
+</html>
